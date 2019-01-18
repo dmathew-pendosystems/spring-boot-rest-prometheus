@@ -7,7 +7,7 @@ build:
     docker: {}
   tagPolicy:
     envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/dmathew-pendosystems/spring-boot-rest-prometheus:{{.VERSION}}'
+      template: '{{.DOCKER_REGISTRY}}/pendosystems/spring-boot-rest-prometheus:{{.VERSION}}'
   local: {}
 deploy:
   kubectl: {}
@@ -18,7 +18,7 @@ profiles:
     - docker: {}
     tagPolicy:
       envTemplate:
-        template: '{{.DOCKER_REGISTRY}}/dmathew-pendosystems/spring-boot-rest-prometheus:{{.DIGEST_HEX}}'
+        template: '{{.DOCKER_REGISTRY}}/pendosystems/spring-boot-rest-prometheus:{{.DIGEST_HEX}}'
     local: {}
   deploy:
     helm:
@@ -26,5 +26,5 @@ profiles:
       - name: spring-boot-rest-prometheus
         chartPath: charts/spring-boot-rest-prometheus
         setValueTemplates:
-          image.repository: '{{.DOCKER_REGISTRY}}/dmathew-pendosystems/spring-boot-rest-prometheus'
+          image.repository: '{{.DOCKER_REGISTRY}}/pendosystems/spring-boot-rest-prometheus'
           image.tag: '{{.DIGEST_HEX}}'
